@@ -1,25 +1,25 @@
 const path = require("path");
 const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
+const logger = require("morgan");
 
 const PORT = process.env.PORT || 3001;
 
-const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-//app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
 
-
-app.use(require("./controllers/api.js"));
+//this is supposed to get routes from controller folder
+//app.use(require("./public/js/api.js"));
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
-  });
+});
