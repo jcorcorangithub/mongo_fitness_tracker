@@ -1,8 +1,8 @@
-const path = require("path");
+//const path = require("path");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const logger = require("morgan");
+//const logger = require("morgan");
 
 const PORT = process.env.PORT || 3001;
 
