@@ -10,7 +10,11 @@ module.exports = function(app){
           }
     });
 
-    
+    app.get('/api/workouts/range', async (req, res) => {
+        const workouts = await db.Workout.aggregate([
+            
+        ])
+    })
 
 
 }
