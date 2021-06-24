@@ -11,10 +11,14 @@ module.exports = function(app){
     });
 
     app.get('/api/workouts/range', async (req, res) => {
-        const workouts = await db.Workout.aggregate([
-            
-        ])
+        const workouts = await db.Workout.aggregate([{
+            $addFields: {
+                totalDuration: { $sum : "$exercises.duration"}
+            } 
+        }])
+        const lastSeven = allWorkoutsData.slice(-7);
+        res.json(lastSeven);
     })
 
-
+    
 }
