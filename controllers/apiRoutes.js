@@ -16,7 +16,7 @@ module.exports = function(app){
             const workouts = await db.Workout.aggregate([{
             $addFields: { totalDuration: { $sum : "$exercises.duration"}} 
         }]);
-            const lastSeven = allWorkoutsData.slice(-7);
+            const lastSeven = workouts.slice(-7);
             res.json(lastSeven);
         } catch (err) {
             console.error(err);
