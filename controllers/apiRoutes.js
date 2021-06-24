@@ -26,7 +26,7 @@ module.exports = function(app){
 
     app.put('/api/workouts/:id', async (req, res) => {
         try {
-            const workoutUpdated = await Workout.updateOne(
+            const workoutUpdated = await db.Workout.updateOne(
                 { _id: req.params.id },
                 { $push: { exercises: req.body }}
             );
