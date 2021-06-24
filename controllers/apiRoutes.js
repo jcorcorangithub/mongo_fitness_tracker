@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = function(app){
     app.get('/api/workouts', async (req, res) => {
         try {
-            const workouts = await Workout.find({}).sort({ day: 1 }).exec();
+            const workouts = await db.Workout.find({}).sort({ day: 1 }).exec();
             res.json(workouts);
         } catch (err) {
             console.error(err);
