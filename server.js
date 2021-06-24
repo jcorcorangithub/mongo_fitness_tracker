@@ -17,8 +17,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
   useFindAndModify: false
 });
 
-//this is supposed to get routes from controller folder
-//app.use(require("./public/js/api.js"));
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
