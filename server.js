@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
 });
 
 require("./controllers/apiRoutes")(app);
-require("./controllers/htmlRoutes");
+require("./controllers/htmlRoutes")(app);
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);

@@ -1,19 +1,15 @@
 const path = require("path");
 
-function viewHomePage(req, res) {
-    res.sendFile(path.join(__dirname, '../public/html', 'index.html'));
-  }
+module.exports = function(app){
+  app.get('/stats', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+  });
   
-  function viewExercisePage(req, res) {
-    res.sendFile(path.join(__dirname, '../public/html', 'exercise.html'));
-  }
+  app.get('/exercise', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/exercise.html'));
+  });
   
-  function viewStatsPage(req, res) {
-    res.sendFile(path.join(__dirname, '../public/html', 'stats.html'));
-  }
-  
-  module.exports = {
-    viewHomePage,
-    viewExercisePage,
-    viewStatsPage,
-  };
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/stats.html'));
+  });
+}
